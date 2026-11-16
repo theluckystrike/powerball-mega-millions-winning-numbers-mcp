@@ -1,0 +1,6 @@
+[
+  ["lottery_latest_numbers", {}],
+  ["lottery_numbers_by_date", {"game": "powerball", "date": "2026-11-11"}],
+  ["lottery_check_ticket", {"game": "powerball", "numbers": [9, 44, 49, 51, 1], "special": 4, "power_play": true}],
+  ["lottery_number_frequency", {"game": "mega_millions", "draws": 100}]
+]

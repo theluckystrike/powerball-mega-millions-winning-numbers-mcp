@@ -1,0 +1,57 @@
+{
+  "name": "powerball-mega-millions-winning-numbers-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for Powerball and Mega Millions winning numbers: the latest draw results, numbers by date, a ticket checker with the prize tier and amount, and hot and cold number frequency. Read live from the New York State open data lottery feeds. No API key.",
+  "type": "module",
+  "license": "MIT",
+  "author": "theluckystrike",
+  "mcpName": "io.github.theluckystrike/powerball-mega-millions-winning-numbers-mcp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theluckystrike/powerball-mega-millions-winning-numbers-mcp"
+  },
+  "homepage": "https://www.mcpstamp.com/servers/",
+  "bin": {
+    "powerball-mega-millions-winning-numbers-mcp": "dist/stdio.js"
+  },
+  "main": "dist/stdio.js",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test",
+    "start": "node dist/stdio.js",
+    "deploy": "npx wrangler@4 deploy",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.20.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "powerball",
+    "mega-millions",
+    "lottery",
+    "lottery-numbers",
+    "winning-numbers",
+    "lottery-results",
+    "powerball-numbers",
+    "mega-millions-numbers",
+    "ticket-checker",
+    "open-data",
+    "cloudflare-workers"
+  ]
+}
