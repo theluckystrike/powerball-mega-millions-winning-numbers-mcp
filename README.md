@@ -1,5 +1,49 @@
 # powerball-mega-millions-winning-numbers-mcp
 
+**Latest Powerball and Mega Millions winning numbers, numbers by date, a ticket checker with prize amounts, and hot and cold numbers, as an MCP server.** Free and hosted: no API key, no sign-up.
+
+Hosted MCP URL (Streamable HTTP):
+
+```
+https://powerball-mega-millions-winning-numbers-mcp.lipmichal.workers.dev/mcp
+```
+
+## Quick start
+
+### Claude
+
+Claude Desktop or claude.ai: Settings > Connectors > Add custom connector, then paste the URL above.
+
+Claude Code:
+
+```
+claude mcp add --transport http lottery-numbers https://powerball-mega-millions-winning-numbers-mcp.lipmichal.workers.dev/mcp
+```
+
+Claude Desktop config file (`claude_desktop_config.json`), through the `mcp-remote` bridge:
+
+```json
+{
+  "mcpServers": {
+    "lottery-numbers": { "command": "npx", "args": ["-y", "mcp-remote", "https://powerball-mega-millions-winning-numbers-mcp.lipmichal.workers.dev/mcp"] }
+  }
+}
+```
+
+### Cursor
+
+Add to `~/.cursor/mcp.json`.
+
+```json
+{
+  "mcpServers": {
+    "lottery-numbers": { "url": "https://powerball-mega-millions-winning-numbers-mcp.lipmichal.workers.dev/mcp" }
+  }
+}
+```
+
+## About
+
 Powerball and Mega Millions winning numbers for AI assistants. Ask for last night's Powerball numbers, check whether a ticket won and how much, look up a past draw, or see the most and least drawn numbers.
 
 This is a Model Context Protocol (MCP) server. It reads the New York State Gaming Commission winning numbers published as open data on data.ny.gov at call time. It needs no API key.
@@ -21,7 +65,7 @@ Every result has structured JSON, a plain-text summary, `as_of`, `source` and `m
 - The current prize tables: Powerball with Power Play (Match 5 with Power Play is $2,000,000) and the $5 Mega Millions game with its built-in 2x to 10x multiplier since 2025-04-08.
 - Frequency counts restricted to the current number matrix, so old 75-ball or 59-ball draws do not skew them.
 
-## Install
+## Other clients and local install
 
 ### Hosted (custom connector, ChatGPT developer mode, any remote MCP client)
 
@@ -29,18 +73,6 @@ Paste this URL. No token, no sign-up.
 
 ```
 https://powerball-mega-millions-winning-numbers-mcp.lipmichal.workers.dev/mcp
-```
-
-### Cursor
-
-Add to `~/.cursor/mcp.json`.
-
-```json
-{
-  "mcpServers": {
-    "lottery-numbers": { "url": "https://powerball-mega-millions-winning-numbers-mcp.lipmichal.workers.dev/mcp" }
-  }
-}
 ```
 
 ### VS Code
